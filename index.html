@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="scripts/vue.js"></script>
+		<link rel="stylesheet" href="css/estilos.css">
+		<title>Ejercicio 2</title>
+</head>
+
+<body>
+	<div class="contenedor" id="contenedor">
+		<h1 v-once>{{tituloPagina}}  </h1>
+
+		<p v-once>{{textoPagina}}</p>
+
+		<ul>
+			<li v-for="item in juegos" v-if="item.calificacion > 6" >
+				<h2>{{item.nombre}}: {{item.anio}}</h2>
+								
+				<img :src="item.portada" :alt="item.alt">
+
+				<p v-for="consola in item.consola">{{consola}}</p>
+
+				<p :class="(item.calificacion >= 8 ? 'green' : 'red') ">CALIFICACION {{item.calificacion}}</p>
+			</li>
+		</ul>
+	</div>
+
+	<script src="scripts/app.js"></script>
+</body>
+</html>
